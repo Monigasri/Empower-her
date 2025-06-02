@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Me - Live Map</title>
+    
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .alert-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .alert {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            width: 300px;
+        }
+
+        .danger {
+            background: #ffecec;
+            color: #d9534f;
+            border: 2px solid #d9534f;
+        }
+
+        .safe {
+            /*background: #f8ead7; #e9fce9
+            color: #f39717;
+            border: 2px solid #f39717;*/
+            background: #e9fce9;
+            color: #28a745;
+            border: 2px solid #28a745;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>TRACK ME</h1>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <!-- Alerts -->
+    <div class="alert-box">
+        <div class="alert danger">⚠️ Danger Area</div>
+        <div class="alert safe">✅ Safe Area</div>
+    </div>
+
+    <script>
+        // Initialize Map
+        var map = L.map('map').setView([12.9716, 77.5946], 13); // Default: Bangalore
+    
+        // Add OpenStreetMap Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+    
+        // Define Zone Areas with Colors
+        var dangerZone = [
+            [12.9816, 77.5846],
+            [12.9826, 77.5866],
+            [12.9806, 77.5886],
+            [12.9786, 77.5866]
+        ];
+        var moderateZone = [
+            [12.9616, 77.6046],
+            [12.9636, 77.6066],
+            [12.9606, 77.6086],
+            [12.9586, 77.6066]
+        ];
+        var safeZone = [
+            [12.9516, 77.6146],
+            [12.9536, 77.6166],
+            [12.9506, 77.6186],
+            [12.9486, 77.6166]
+        ];
+    
+        // Draw Polygon for Danger Zone (Red)
+        L.polygon(dangerZone, {color: "red", fillColor: "red", fillOpacity: 0.4})
+            .addTo(map)
+            .bindPopup("⚠️ High-Risk Area - Avoid if possible!");
+    
+        // Draw Polygon for Moderate Zone (Yellow)
+        L.polygon(moderateZone, {color: "yellow", fillColor: "yellow", fillOpacity: 0.4})
+            .addTo(map)
+            .bindPopup("⚠️ Moderate Risk Area - Be cautious!");
+    
+        // Draw Polygon for Safe Zone (Green)
+        L.polygon(safeZone, {color: "green", fillColor: "green", fillOpacity: 0.4})
+            .addTo(map)
+            .bindPopup("✅ Safe Area - You can travel freely!");
+    
+        // Locate User
+        map.locate({setView: true, maxZoom: 16});
+        function onLocationFound(e) {
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("📍 You are here").openPopup();
+        }
+        map.on('locationfound', onLocationFound);
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Call</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="loadFakeCall()">
+
+    <div class="call-screen">
+        
+        <div class="caller-info">
+            <img src="profile.png" alt="Caller Profile" id="caller-img">
+            <h2 id="caller-name">Caller Name</h2>
+            <p id="caller-number">Mobile +0000000000</p>
+            <p id="call-timer">00:00</p>
+        </div>
+        <br><br> <br><br> <br><br>
+        
+        <div class="call-options">
+            <button class="call-btn">
+                <img src="speaker.png" alt="Speaker">
+                <span>Speaker</span>
+            </button>
+            <button class="call-btn">
+                <img src="mute-icon.png" alt="Mute">
+                <span>Mute</span>
+            </button>
+            <button class="end-call" onclick="endFakeCall()">
+                <img src="endcall-icon.png" alt="End Call">
+            </button>
+            <button class="call-btn">
+                <img src="bluethooth-icon.png" alt="Bluetooth">
+                <span>Bluetooth</span>
+            </button>
+            <button class="call-btn">
+                <img src="add-call-icon.png" alt="Add Call">
+                <span>Add Call</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

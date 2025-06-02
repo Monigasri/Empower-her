@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="EmpowerHer Logo">
+            <h2>EmpowerHer</h2>
+        </div>
+        <div class="icons">
+            <img src="notification.png" alt="Notifications">
+            <img src="menu-icon.png" alt="Menu">
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()">← Back</button>
+
+    <!-- History Section -->
+    <div class="history-container">
+        <h1 class="history-title-main">History</h1>
+        
+        <div class="filter-container">
+            <select id="historyFilter" onchange="filterHistory()">
+                <option value="all">All</option>
+                <option value="recording">Recordings</option>
+                <option value="fakecall">Fake Calls</option>
+                <option value="notes">Notes</option>
+            </select>
+            <div>        </div>
+            <input type="text" id="searchHistory" placeholder="Search..." oninput="searchHistory()">
+        </div>
+
+        <div id="historyList" class="history-list">
+            <!-- History items will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <img src="recording icon.png" alt="Recordings" onclick="navigateTo('history.html')">
+        <img src="notes-icon.png" alt="Notes" onclick="navigateTo('notes-history.html')">
+        <img src="call-icon.png" alt="Fake Calls" onclick="navigateTo('fake-call-history.html')">
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            loadHistory();
+        });
+
+        function loadHistory() {
+            let historyList = document.getElementById("historyList");
+            historyList.innerHTML = ""; // Clear previous content
+
+            let historyData = JSON.parse(localStorage.getItem("historyData")) || [
+                { type: "recording", title: "Voice 001", time: "00:00:10", date: "20 Mar 9:21 AM" },
+                { type: "recording", title: "Voice 002", time: "00:02:10", date: "22 Mar 11:45 AM" },
+                { type: "recording", title: "Voice 003", time: "00:01:10", date: "23 Mar 6:34 PM" }
+            ];
+
+            historyData.forEach(item => {
+                let historyItem = document.createElement("div");
+                historyItem.classList.add("history-item", item.type);
+                historyItem.innerHTML = `
+                    <button class="play-button">▶️</button>
+                    <span class="history-title">${item.title}</span>
+                    <span class="history-time">${item.time}</span>
+                    <span class="history-date">${item.date}</span>
+                `;
+                historyList.appendChild(historyItem);
+            });
+        }
+
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        function filterHistory() {
+            let filter = document.getElementById("historyFilter").value;
+            document.querySelectorAll(".history-item").forEach(item => {
+                if (filter === "all" || item.classList.contains(filter)) {
+                    item.style.display = "flex";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+
+        function searchHistory() {
+            let query = document.getElementById("searchHistory").value.toLowerCase();
+            document.querySelectorAll(".history-item").forEach(item => {
+                let title = item.querySelector(".history-title").textContent.toLowerCase();
+                item.style.display = title.includes(query) ? "flex" : "none";
+            });
+        }
+    </script>
+
+</body>
+</html>

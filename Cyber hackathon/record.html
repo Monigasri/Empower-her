@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="EmpowerHer Logo">
+            <h2>EmpowerHer</h2>
+        </div>
+        <div class="icons">
+            <img src="notification.png" alt="Notifications">
+            <img src="menu-icon.png" alt="Menu">
+        </div>
+    </header>
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()">← Back</button>
+
+
+    <!-- Recording Section -->
+    <div class="recording-container">
+        <h1 class="record-title">Record</h1>
+        <p class="record-subtext">In case of any emergency, document a situation confidentially.<br>
+            It records full audio-video in your phone completely.
+        </p>
+
+        <!-- Recording History -->
+        <div class="record-history">
+            <img src="recording icon.png" alt="Microphone">
+            <div class="record-text">
+                <strong>Recording</strong>
+                <p>Tap to see history</p>
+            </div>
+        </div>
+
+        <!-- Timer -->
+        <p id="timer" class="timer">00:00</p>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="recordBtn" class="record-btn">🎤 Record</button>
+            <button id="playBtn" class="play-btn hidden">▶️ Play</button>
+            <button id="pauseBtn" class="pause-btn hidden">⏸ Pause</button>
+            <button id="stopBtn" class="stop-btn hidden">⏹ Stop</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

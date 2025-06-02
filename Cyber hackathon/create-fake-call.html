@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Fake Call</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="EmpowerHer Logo">
+            <h2>EmpowerHer</h2>
+        </div>
+        <div class="icons">
+            <img src="notification.png" alt="Notifications">
+            <img src="menu-icon.png" alt="Menu">
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBackFakeCall()">← Back</button>
+
+<b><br></b>
+    <!-- Fake Call Form -->
+    <div class="fake-call-form">
+        <!-- Profile Picture -->
+        <div class="profile-container">
+            <img src="profile.png" alt="Profile" class="profile-pic-large">
+        </div>
+
+        <label for="callerName">Name:</label>
+        <input type="text" id="callerName" placeholder="Enter the Name">
+
+        <label for="callerNumber">Number:</label>
+        <input type="text" id="callerNumber" placeholder="Enter the Number">
+
+        <label>Timing:</label>
+        <div class="timing-options">
+            <button class="time-btn" onclick="setTime(1)">1 min</button>
+            <button class="time-btn" onclick="setTime(2)">2 min</button>
+            <button class="time-btn" onclick="setTime(5)">5 min</button>
+            <button class="time-btn" onclick="setTime(10)">10 min</button>
+        </div>
+
+        <button class="add-btn" onclick="saveFakeCall()">Start Call</button>
+    </div>
+
+
+</body>
+</html>

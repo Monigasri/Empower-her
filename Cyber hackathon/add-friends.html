@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Friends</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()">← Back</button>
+
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="EmpowerHer Logo">
+            <h2>EmpowerHer</h2>
+        </div>
+        <div class="menu-icon">
+            <img src="menu-icon.png" alt="Menu">
+        </div>
+    </header>
+
+    <section class="add-friends-container">
+        <h1>Add Friends</h1>
+        
+        <div class="image-container">
+            <img src="Add-friends image.png" alt="Friends Illustration">
+        </div>
+
+        <div class="input-box">
+            <select class="country-code">
+                <option value="+91">+91</option>
+                <option value="+1">+1</option>
+                <option value="+44">+44</option>
+            </select>
+            <input type="text" placeholder="Enter your number">
+        </div>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="sos-contact">
+            <label for="sos-contact">Make this number as SOS contact</label>
+        </div>
+
+        <button class="add-btn">Add</button>
+    </section>
+<script>
+    function goBack() {
+    window.location.href = "index.html"; // Change this to the page you want
+}
+</script>
+</body>
+</html>

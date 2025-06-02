@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Call History</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="fake-call-history">
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="EmpowerHer Logo">
+            <h2>EmpowerHer</h2>
+        </div>
+        <div class="icons">
+            <img src="notification.png" alt="Notifications">
+            <img src="menu-icon.png" alt="Menu">
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()">← Back</button>
+
+    <!-- History Section -->
+    <div class="fake-call-container">
+        <h1 class="fake-call-title">Fakecall History</h1>
+        
+        <div class="fake-call-search-container">
+            <input type="text" id="fakeCallSearch" placeholder="🔍 Search..." oninput="searchFakeCallHistory()">
+        </div>
+
+        <div id="fakeCallHistoryList" class="fake-call-list">
+            <h3 class="fake-call-date-title">Today</h3>
+            <div class="fake-call-item">
+                <span class="fake-call-icon">📞</span>
+                <span class="fake-call-name">Amma</span>
+                <span class="fake-call-time">8:59 AM</span>
+            </div>
+
+            <h3 class="fake-call-date-title">Yesterday</h3>
+            <div class="fake-call-item">
+                <span class="fake-call-icon">📞</span>
+                <span class="fake-call-name">Appa</span>
+                <span class="fake-call-time">8:59 AM</span>
+            </div>
+            <div class="fake-call-item">
+                <span class="fake-call-icon">📞</span>
+                <span class="fake-call-name">Police</span>
+                <span class="fake-call-time">8:59 AM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <img src="recording icon.png" alt="Recordings" onclick="navigateTo('history.html')">
+        <img src="notes-icon.png" alt="Notes" onclick="navigateTo('notes-history.html')">
+        <img src="call-icon.png" alt="Fake Calls" onclick="navigateTo('fake-call-history.html')">
+    </nav>
+
+</body>
+</html>
